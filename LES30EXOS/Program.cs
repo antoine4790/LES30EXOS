@@ -10,7 +10,7 @@ namespace LES30EXOS
             //HelloWorld();
 
             //Exo2
-            //Console.WriteLine("voici votre valeur :" + GetString());
+            //Console.WriteLine("voici votre valeur :" + GetStringFromCmdLine());
             //Console.WriteLine("voici votre valeur :" + GetIntegerFromCmdLine());
 
             //Exo3
@@ -38,22 +38,14 @@ namespace LES30EXOS
             //Console.WriteLine("La moyenne est de " + DisplayMean());
 
             //Exo8
-            //Console.WriteLine("Affiche le plus grand des nombres");
+            Console.WriteLine("Affiche le plus grand des nombres");
             Console.WriteLine("Le plus grand nombre est :" + BiggestNumber());
         }
 
         static float[] GetEntriesNumberFromCmdLine()
         {
 
-            Console.WriteLine("Combien de chiffres devez vous entrer?");
-
-            bool isOk = int.TryParse(Console.ReadLine(), out int EntriesNumber);
-            //if (isOk)
-            //{
-            //    float[] ArrayNumbers = new float[EntriesNumber];
-            //}
-            //else
-            //    return 1;
+            int EntriesNumber = GetIntegerFromCmdLine("Combien de chiffres devez vous entrer?");
 
             float[] ArrayNumbers = new float[EntriesNumber];
 
@@ -64,12 +56,28 @@ namespace LES30EXOS
 
             return ArrayNumbers;
         }
+
+        static string[] GetEntriesStringsFromCmdLine()
+        {
+
+            int EntriesNumber = GetIntegerFromCmdLine("Combien de mots devez vous entrer?");
+
+            string[] ArrayWords = new string[EntriesNumber];
+
+            for (int i = 0; i < EntriesNumber; i++)
+            {
+                ArrayWords[i] = GetStringFromCmdLine("Entrez un mot");
+            }
+
+            return ArrayWords;
+        }
+
         static void HelloWorld()
         {
             Console.WriteLine("Hello World!");
         }
 
-        static string GetString(string question = "Quelle est la valeur?")
+        static string GetStringFromCmdLine(string question = "Quelle est la valeur?")
         {
             Console.WriteLine(question);
             string input = Console.ReadLine();
@@ -92,32 +100,26 @@ namespace LES30EXOS
 
         static int GetIntegerFromCmdLine(string question = "Quelle est la valeur?")
         {
-            if (int.TryParse(GetString(question), out int integer_input))
+            if (int.TryParse(GetStringFromCmdLine(question), out int integer_input))
             {
                 if (CheckSignOfInteger(integer_input))
-                    Console.WriteLine(integer_input + "est négatif");
+                    Console.WriteLine(integer_input + " est négatif");
                 else
-                    Console.WriteLine(integer_input + "est positif");
+                    Console.WriteLine(integer_input + " est positif");
 
                 return integer_input;
             }
             else
                 Console.WriteLine("Ceci n'est pas un chiffre");
-                return -1;
+            return -1;
         }
 
         static string SwitchOrder()
         {
-            string[] WordsArray = new string[3];
-            WordsArray[0] = GetString("Entrez le premier mot");
 
-            WordsArray[1] = GetString("Entrez le deuxieme mot");
+            string[] WordsArray = GetEntriesStringsFromCmdLine();
 
-            WordsArray[2] = GetString("Entrez le troisieme mot");
-
-
-
-            return String.Format("{0} {1} {2}", WordsArray[2] , WordsArray[1] , WordsArray[0]);
+            return String.Format("{0} {1} {2}", WordsArray[2], WordsArray[1], WordsArray[0]);
         }
 
         static string DisplayEqualNumbers()
@@ -140,32 +142,54 @@ namespace LES30EXOS
             ArrayNumbers[0] = ArrayNumbers[1];
             ArrayNumbers[1] = tmp;
 
-            return String.Format("{0} {1}",ArrayNumbers[0], ArrayNumbers[1]);
+            return String.Format("{0} {1}", ArrayNumbers[0], ArrayNumbers[1]);
         }
 
         static float[] AddSubstractDivideMultiple2Numbers()
         {
-            float[] ArrayNumbers = { GetIntegerFromCmdLine("Entrez un chiffre"), GetIntegerFromCmdLine("Entrez un autre chiffre") };
-            float[] ArrayResults = {
-                ArrayNumbers[0] + ArrayNumbers[1],
-                ArrayNumbers[0] - ArrayNumbers[1],
-                (float)ArrayNumbers[0] / ArrayNumbers[1],
-                ArrayNumbers[0] * ArrayNumbers[1]
-            };
+            float[] ArrayNumbers = GetEntriesNumberFromCmdLine();
+            float[] ArrayResults = new float[ArrayNumbers.Length];
+
+            if (ArrayNumbers.Length == 2)
+            {
+                ArrayNumbers[0] = Addition(ArrayNumbers[0], ArrayNumbers[1]) ;
+                ArrayNumbers[1] = Soustraction(ArrayNumbers[0], ArrayNumbers[1]);
+                ArrayNumbers[2] = Multiplication(ArrayNumbers[0], ArrayNumbers[1]);
+                ArrayNumbers[3] = Division(ArrayNumbers[0], ArrayNumbers[1]);
+
+            }
+            else
+                ArrayResults = ArrayNumbers;
+
 
 
             return ArrayResults;
         }
 
+        static float Addition(float chiffre1 = 0, float chiffre2 = 0)
+        {
+            return chiffre1 + chiffre2;
+        }
+
+        static float Soustraction(float chiffre1 = 0, float chiffre2 = 0)
+        {
+            return chiffre1 - chiffre2;
+        }
+
+        static float Multiplication(float chiffre1 = 0, float chiffre2 = 0)
+        {
+            return chiffre1 * chiffre2;
+        }
+
+        static float Division(float chiffre1 = 0, float chiffre2 = 0)
+        {
+            return chiffre1 / chiffre2;
+        }
+
         static float DisplayMean()
         {
+            float[] ArrayNumbers = GetEntriesNumberFromCmdLine();
 
-            float[] ArrayNumbers = {
-                GetIntegerFromCmdLine("Entrez un chiffre"),
-                GetIntegerFromCmdLine("Entrez un autre chiffre"),
-                GetIntegerFromCmdLine("Entrez un autre chiffre"),
-                GetIntegerFromCmdLine("Entrez un autre chiffre")
-            };
 
             float mean = 0;
             for (int i = 0; i < ArrayNumbers.Length; i++)
