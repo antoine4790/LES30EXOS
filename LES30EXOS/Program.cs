@@ -42,8 +42,8 @@ namespace LES30EXOS
             //Console.WriteLine("Le plus grand nombre est :" + BiggestNumber());
 
             //Exo9
-            Console.WriteLine("CheckSign");
-            GetIntegerFromCmdLine("Entrez un chiffre pour vérifier son signe", true);
+            //Console.WriteLine("CheckSign");
+            //GetIntegerFromCmdLine("Entrez un chiffre pour vérifier son signe", true);
 
             //Exo10
             //Console.WriteLine("Pair or not Pair");
@@ -73,8 +73,13 @@ namespace LES30EXOS
             //EnterPassword();
 
             //Exo14
-            Console.WriteLine("Display a arithmetic operation");
-            Console.WriteLine(DisplayArithmeticOperation());
+            //Console.WriteLine("Display a arithmetic operation");
+            //Console.WriteLine(DisplayArithmeticOperation());
+
+            //Exo15
+            Console.WriteLine("Display 10 first numbers");
+            //int[] ArrayNumbers =[10, 11, 13, 2, 5, 1, 99, 88, 56, 46, 34];
+            DisplayTenFirstNumbers(10);
         }
 
         static float[] GetEntriesFloatNumberFromCmdLine()
@@ -151,7 +156,7 @@ namespace LES30EXOS
             return isNegative;
         }
 
-        static int GetIntegerFromCmdLine(string question = "Quelle est la valeur?", bool checkSign=false)
+        static int GetIntegerFromCmdLine(string question = "Quelle est la valeur?", bool checkSign = false)
         {
             if (int.TryParse(GetStringFromCmdLine(question), out int integer_input))
             {
@@ -217,7 +222,7 @@ namespace LES30EXOS
 
             if (ArrayNumbers.Length == 2)
             {
-                ArrayNumbers[0] = Addition(ArrayNumbers[0], ArrayNumbers[1]) ;
+                ArrayNumbers[0] = Addition(ArrayNumbers[0], ArrayNumbers[1]);
                 ArrayNumbers[1] = Soustraction(ArrayNumbers[0], ArrayNumbers[1]);
                 ArrayNumbers[2] = Multiplication(ArrayNumbers[0], ArrayNumbers[1]);
                 ArrayNumbers[3] = Division(ArrayNumbers[0], ArrayNumbers[1]);
@@ -284,7 +289,7 @@ namespace LES30EXOS
             bool isPair = false;
             if (chiffre % 2 == 0)
                 isPair = true;
-            
+
             return isPair;
         }
 
@@ -321,7 +326,7 @@ namespace LES30EXOS
                     day = "Samedi"; break;
                 case 7:
                     day = "Dimanche"; break;
-                
+
             }
             return day;
         }
@@ -333,7 +338,7 @@ namespace LES30EXOS
             int intent = 0;
             int max_intents = 3;
             string password = "";
-            while (intent < max_intents )
+            while (intent < max_intents)
             {
                 password = GetStringFromCmdLine(String.Format("Entrez le bon mot de passe ({0} essais)", max_intents - intent));
                 if (password == secretPassword)
@@ -343,7 +348,7 @@ namespace LES30EXOS
                     Console.WriteLine("Password incorrect!");
                     intent++;
                 }
-                
+
             }
             if (password == secretPassword)
                 Console.WriteLine("Password correct, You can go");
@@ -378,6 +383,27 @@ namespace LES30EXOS
 
 
 
+        }
+
+        static bool CheckDisplayLimit(int increment, int limitNumber)
+        {
+            if (increment < limitNumber)
+                return true;
+            else
+                return false;
+
+        }
+
+        static void DisplayTenFirstNumbers(int maxToDisplay)
+        {
+            int max = GetIntegerFromCmdLine("Combien de chiffres voulez vous afficher?");
+            for (int i = 0; i < 100; i++)
+            {
+                if (CheckDisplayLimit(i, max))
+                    Console.WriteLine(i);
+                else
+                    break;
+            }
         }
     }
 }
