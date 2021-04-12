@@ -115,15 +115,15 @@ namespace LES30EXOS
 
         static bool CheckSignOfInteger(int number = 0)
         {
-            bool result = false;
+            bool isNegative = false;
             if (number < 0)
-                result = true;
+                isNegative = true;
             else if (number > 0)
-                result = true;
+                isNegative = false;
             else
                 Console.WriteLine("Vous avez entré 0 comme chiffre");
 
-            return result;
+            return isNegative;
         }
 
         static int GetIntegerFromCmdLine(string question = "Quelle est la valeur?")
@@ -255,7 +255,7 @@ namespace LES30EXOS
         static bool IsPair(int chiffre = 0)
         {
             bool isPair = false;
-            if (chiffre % 2 != 0)
+            if (chiffre % 2 == 0)
                 isPair = true;
             
             return isPair;
