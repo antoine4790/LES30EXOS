@@ -77,9 +77,13 @@ namespace LES30EXOS
             //Console.WriteLine(DisplayArithmeticOperation());
 
             //Exo15
-            Console.WriteLine("Display 10 first numbers");
-            //int[] ArrayNumbers =[10, 11, 13, 2, 5, 1, 99, 88, 56, 46, 34];
-            DisplayTenFirstNumbers(10);
+            //Console.WriteLine("Display 10 first numbers");
+            //int[] ArrayNumbers = ReturnTenFirstNumbers(10,true);
+           
+
+            //Exo16
+            Console.WriteLine("Display Multiplication Table Of 10");
+            DisplayTenMultiplicationTable();
         }
 
         static float[] GetEntriesFloatNumberFromCmdLine()
@@ -394,16 +398,27 @@ namespace LES30EXOS
 
         }
 
-        static void DisplayTenFirstNumbers(int maxToDisplay)
+        static int[] ReturnTenFirstNumbers(int maxToDisplay,bool display = false)
         {
-            int max = GetIntegerFromCmdLine("Combien de chiffres voulez vous afficher?");
+            int[] ArrayNumbers = new int[maxToDisplay];
             for (int i = 0; i < 100; i++)
             {
-                if (CheckDisplayLimit(i, max))
-                    Console.WriteLine(i);
+                if (CheckDisplayLimit(i, maxToDisplay))
+                {
+                    if (display) Console.WriteLine(i);
+                    ArrayNumbers[i] = i;
+                }
                 else
                     break;
             }
+            return ArrayNumbers;
+        }
+
+        static void DisplayTenMultiplicationTable()
+        {
+            int[] ArrayNumbers = ReturnTenFirstNumbers(11);
+            for (int i = 0; i < ArrayNumbers.Length; i++)
+                Console.WriteLine("10 x {0} = {1}", ArrayNumbers[i], 10 * ArrayNumbers[i]);
         }
     }
 }
