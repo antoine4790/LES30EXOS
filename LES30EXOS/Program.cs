@@ -42,16 +42,23 @@ namespace LES30EXOS
             //Console.WriteLine("Le plus grand nombre est :" + BiggestNumber());
 
             //Exo10
-            Console.WriteLine("Pair or not Pair");
-            int[] ArrayNumbers = GetEntriesIntegerNumberFromCmdLine();
+            //Console.WriteLine("Pair or not Pair");
+            //int[] ArrayNumbers = GetEntriesIntegerNumberFromCmdLine();
+            //for (int i = 0; i < ArrayNumbers.Length; i++)
+            //{
+            //    if(IsPair(ArrayNumbers[i]))
+            //        Console.WriteLine("Nombre Pair");
+            //    else
+            //        Console.WriteLine("Nombre Impair");
+            //}
+
+            //Exo11
+            //Console.WriteLine("Convert to Kelvin and Fahrenheit");
+            float[] ArrayNumbers = GetEntriesFloatNumberFromCmdLine();
             for (int i = 0; i < ArrayNumbers.Length; i++)
             {
-                if(IsPair(ArrayNumbers[i]))
-                    Console.WriteLine("Nombre Pair");
-                else
-                    Console.WriteLine("Nombre Impair");
+                Console.WriteLine(String.Format("{0}°C  donne {1}°F  et {2}°K", ArrayNumbers[i], CelsiusToFahrenheit(ArrayNumbers[i]), CelsiusToKelvin(ArrayNumbers[i])));
             }
-            
 
         }
 
@@ -259,6 +266,20 @@ namespace LES30EXOS
                 isPair = true;
             
             return isPair;
+        }
+
+        static float CelsiusToFahrenheit(float tempCelsius = 0)
+        {
+            //(0 °C × 9/5) + 32 = 32 °F
+            float fahrTemp = tempCelsius * (9 / 5) + 32;
+            return fahrTemp;
+        }
+
+        static float CelsiusToKelvin(float tempCelsius = 0)
+        {
+            //0 °C + 273,15 = 273,15 K
+            float kelvinTemp = tempCelsius + (float)273.15;
+            return kelvinTemp;
         }
     }
 }
