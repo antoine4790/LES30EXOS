@@ -54,12 +54,15 @@ namespace LES30EXOS
 
             //Exo11
             //Console.WriteLine("Convert to Kelvin and Fahrenheit");
-            float[] ArrayNumbers = GetEntriesFloatNumberFromCmdLine();
-            for (int i = 0; i < ArrayNumbers.Length; i++)
-            {
-                Console.WriteLine(String.Format("{0}°C  donne {1}°F  et {2}°K", ArrayNumbers[i], CelsiusToFahrenheit(ArrayNumbers[i]), CelsiusToKelvin(ArrayNumbers[i])));
-            }
+            //float[] ArrayNumbers = GetEntriesFloatNumberFromCmdLine();
+            //for (int i = 0; i < ArrayNumbers.Length; i++)
+            //{
+            //    Console.WriteLine(String.Format("{0}°C  donne {1}°F  et {2}°K", ArrayNumbers[i], CelsiusToFahrenheit(ArrayNumbers[i]), CelsiusToKelvin(ArrayNumbers[i])));
+            //}
 
+            //Exo12
+            Console.WriteLine("Day of Week");
+            Console.WriteLine(DayOfWeek(GetIntegerFromCmdLine()));
         }
 
         static float[] GetEntriesFloatNumberFromCmdLine()
@@ -280,6 +283,30 @@ namespace LES30EXOS
             //0 °C + 273,15 = 273,15 K
             float kelvinTemp = tempCelsius + (float)273.15;
             return kelvinTemp;
+        }
+
+        static string DayOfWeek(int numero)
+        {
+            string day = "Unknown";
+            switch (numero)
+            {
+                case 1:
+                    day = "Lundi"; break;
+                case 2:
+                    day = "Mardi"; break;
+                case 3:
+                    day = "Mercredi"; break;
+                case 4:
+                    day = "Jeudi"; break;
+                case 5:
+                    day = "Vendredi"; break;
+                case 6:
+                    day = "Samedi"; break;
+                case 7:
+                    day = "Dimanche"; break;
+                
+            }
+            return day;
         }
     }
 }
