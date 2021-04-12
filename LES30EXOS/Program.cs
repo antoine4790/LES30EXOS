@@ -117,7 +117,7 @@ namespace LES30EXOS
 
 
 
-            return WordsArray[2] + WordsArray[1] + WordsArray[0];
+            return String.Format("{0} {1} {2}", WordsArray[2] , WordsArray[1] , WordsArray[0]);
         }
 
         static string DisplayEqualNumbers()
@@ -126,7 +126,7 @@ namespace LES30EXOS
             int chiffre2 = GetIntegerFromCmdLine("Entrez un autre chiffre");
 
             if (chiffre1 == chiffre2)
-                return chiffre1 + " " + chiffre2;
+                return String.Format("{0} {1}", chiffre1, chiffre2);
             else
                 return "";
         }
@@ -140,7 +140,7 @@ namespace LES30EXOS
             ArrayNumbers[0] = ArrayNumbers[1];
             ArrayNumbers[1] = tmp;
 
-            return ArrayNumbers[0] + " " + ArrayNumbers[1];
+            return String.Format("{0} {1}",ArrayNumbers[0], ArrayNumbers[1]);
         }
 
         static float[] AddSubstractDivideMultiple2Numbers()
