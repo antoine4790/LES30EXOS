@@ -93,7 +93,15 @@ namespace LES30EXOS
 
             //Exo18
             //Console.WriteLine("Display Pyramide");
-            //DisplayPyramide();
+            //int hauteur = GetIntegerFromCmdLine("Entrez la hauteur de la pyramide");
+            //string pattern = GetStringFromCmdLine("Entrez le motif de la pyramide");
+            //DisplayPyramide(hauteur,pattern);
+
+            //Exo19
+            //Console.WriteLine("Display Diamant");
+            //int hauteur = GetIntegerFromCmdLine("Entrez la hauteur du diamant");
+            //string pattern = GetStringFromCmdLine("Entrez le motif du diamant");
+            //DisplayDiamant(hauteur,pattern);
         }
 
         static float[] GetEntriesFloatNumberFromCmdLine()
@@ -444,11 +452,10 @@ namespace LES30EXOS
 
         }
 
-        static void DisplayPyramide()
+        static void DisplayPyramide(int hauteur=0, string pattern="")
         {
-            int hauteur = GetIntegerFromCmdLine("Entrez la hauteur de la pyramide");
-            string pattern = GetStringFromCmdLine("Entrez le motif de la pyramide");
-            //on écrit les espaces(avec comme nbre max largeur puis tous les patterns avec nb_motif
+            
+            //on écrit les espaces(avec comme nbre max nb_espaces puis les patterns avec nb_motif
             int nb_motif = 1;
             int nb_espaces = hauteur;
             for (int ligne = 0; ligne < hauteur; ligne++)
@@ -470,27 +477,29 @@ namespace LES30EXOS
             
         }
 
-        static void DisplayDiamond()
+        static void DisplayDiamant(int hauteur = 0, string pattern = "")
         {
-            int hauteur = GetIntegerFromCmdLine("Entrez la hauteur de la pyramide");
-            string pattern = GetStringFromCmdLine("Entrez le motif de la pyramide");
-            //on écrit les espaces(avec comme nbre max largeur puis tous les patterns avec nb_motif
-            int nb_motif = 1;
-            int largeur = hauteur;
-            for (int y = 0; y < hauteur; y++)
+            int hauteurPyramide = (hauteur % 2 == 0) ? hauteur / 2 : hauteur / 2 + 1;
+            DisplayPyramide(hauteurPyramide, pattern);
+            //on écrit les espaces(avec comme nbre max nb_espaces puis les patterns avec nb_motif
+            int hauteurBasDiamant = hauteur - hauteurPyramide;
+            int nb_motifs = (hauteur % 2 == 0) ? hauteur -1 : hauteur - 2;
+            int nb_espaces = (hauteur % 2 == 0) ? 1 : 2;
+            for (int ligne = 0; ligne < hauteurBasDiamant; ligne++)
             {
+
                 int xpos = 0;
-                while (xpos != largeur)
+                while (xpos != nb_espaces)
                 {
                     xpos++;
                     Console.Write(" ");
                 }
-                for (int j = 0; j < nb_motif; j++)
+                nb_espaces++;
+                for (int j = 0; j < nb_motifs; j++)
                 {
                     Console.Write(pattern);
                 }
-                largeur--;
-                nb_motif += 2;
+                nb_motifs -= 2;
                 Console.WriteLine("");
             }
 
