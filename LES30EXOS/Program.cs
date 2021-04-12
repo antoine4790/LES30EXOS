@@ -14,7 +14,7 @@ namespace LES30EXOS
             //Console.WriteLine("voici votre valeur :" + GetIntegerFromCmdLine());
 
             //Exo3
-            //Console.WriteLine("Inverse deux nombres");
+            //Console.WriteLine("Inverse trois mots");
             //Console.WriteLine(SwitchOrder());
 
             //Exo4 
@@ -44,10 +44,10 @@ namespace LES30EXOS
 
         static float[] GetEntriesNumberFromCmdLine()
         {
-            
+
             Console.WriteLine("Combien de chiffres devez vous entrer?");
 
-            bool isOk= int.TryParse(Console.ReadLine(), out int EntriesNumber);
+            bool isOk = int.TryParse(Console.ReadLine(), out int EntriesNumber);
             //if (isOk)
             //{
             //    float[] ArrayNumbers = new float[EntriesNumber];
@@ -55,13 +55,13 @@ namespace LES30EXOS
             //else
             //    return 1;
 
-            float[] ArrayNumbers= new float[EntriesNumber];
-            
-                for (int i = 0; i < EntriesNumber; i++)
-                {
-                    ArrayNumbers[i]=GetIntegerFromCmdLine("Entrez un chiffre");
-                }
-            
+            float[] ArrayNumbers = new float[EntriesNumber];
+
+            for (int i = 0; i < EntriesNumber; i++)
+            {
+                ArrayNumbers[i] = GetIntegerFromCmdLine("Entrez un chiffre");
+            }
+
             return ArrayNumbers;
         }
         static void HelloWorld()
@@ -77,11 +77,32 @@ namespace LES30EXOS
             return input;
         }
 
+        static bool CheckSignOfInteger(int number = 0)
+        {
+            bool result = false;
+            if (number < 0)
+                result = true;
+            else if (number > 0)
+                result = true;
+            else
+                Console.WriteLine("Vous avez entré 0 comme chiffre");
+
+            return result;
+        }
+
         static int GetIntegerFromCmdLine(string question = "Quelle est la valeur?")
         {
             if (int.TryParse(GetString(question), out int integer_input))
+            {
+                if (CheckSignOfInteger(integer_input))
+                    Console.WriteLine(integer_input + "est négatif");
+                else
+                    Console.WriteLine(integer_input + "est positif");
+
                 return integer_input;
+            }
             else
+                Console.WriteLine("Ceci n'est pas un chiffre");
                 return -1;
         }
 
@@ -110,43 +131,43 @@ namespace LES30EXOS
                 return "";
         }
 
-        static string DisplaySwitchAndDisplay2Numbers() 
+        static string DisplaySwitchAndDisplay2Numbers()
         {
-            
+
             int[] ArrayNumbers = { GetIntegerFromCmdLine("Entrez un chiffre"), GetIntegerFromCmdLine("Entrez un autre chiffre") };
             Console.WriteLine(ArrayNumbers[0] + " " + ArrayNumbers[1]);
             int tmp = ArrayNumbers[0];
             ArrayNumbers[0] = ArrayNumbers[1];
             ArrayNumbers[1] = tmp;
 
-            return ArrayNumbers[0] +" "+ ArrayNumbers[1];
+            return ArrayNumbers[0] + " " + ArrayNumbers[1];
         }
 
         static float[] AddSubstractDivideMultiple2Numbers()
         {
             float[] ArrayNumbers = { GetIntegerFromCmdLine("Entrez un chiffre"), GetIntegerFromCmdLine("Entrez un autre chiffre") };
-            float[] ArrayResults = { 
+            float[] ArrayResults = {
                 ArrayNumbers[0] + ArrayNumbers[1],
                 ArrayNumbers[0] - ArrayNumbers[1],
-                (float)ArrayNumbers[0] / ArrayNumbers[1], 
+                (float)ArrayNumbers[0] / ArrayNumbers[1],
                 ArrayNumbers[0] * ArrayNumbers[1]
             };
-            
+
 
             return ArrayResults;
         }
 
         static float DisplayMean()
         {
-            
+
             float[] ArrayNumbers = {
-                GetIntegerFromCmdLine("Entrez un chiffre"), 
+                GetIntegerFromCmdLine("Entrez un chiffre"),
                 GetIntegerFromCmdLine("Entrez un autre chiffre"),
                 GetIntegerFromCmdLine("Entrez un autre chiffre"),
                 GetIntegerFromCmdLine("Entrez un autre chiffre")
             };
 
-            float mean=0;
+            float mean = 0;
             for (int i = 0; i < ArrayNumbers.Length; i++)
             {
                 mean += ArrayNumbers[i];
