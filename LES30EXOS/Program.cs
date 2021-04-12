@@ -61,8 +61,12 @@ namespace LES30EXOS
             //}
 
             //Exo12
-            Console.WriteLine("Day of Week");
-            Console.WriteLine(DayOfWeek(GetIntegerFromCmdLine()));
+            //Console.WriteLine("Day of Week");
+            //Console.WriteLine(DayOfWeek(GetIntegerFromCmdLine()));
+
+            //Exo13:
+            //Console.WriteLine("Enter correct password");
+            //EnterPassword();
         }
 
         static float[] GetEntriesFloatNumberFromCmdLine()
@@ -307,6 +311,31 @@ namespace LES30EXOS
                 
             }
             return day;
+        }
+
+        static void EnterPassword()
+        {
+
+            string secretPassword = "Zouzou";
+            int intent = 0;
+            int max_intents = 3;
+            string password = "";
+            while (intent < max_intents )
+            {
+                password = GetStringFromCmdLine(String.Format("Entrez le bon mot de passe ({0} essais)", max_intents - intent));
+                if (password == secretPassword)
+                    break;
+                else
+                {
+                    Console.WriteLine("Password incorrect!");
+                    intent++;
+                }
+                
+            }
+            if (password == secretPassword)
+                Console.WriteLine("Password correct, You can go");
+            else
+                Console.WriteLine("You got blocked, unsuccessful intents !");
         }
     }
 }
