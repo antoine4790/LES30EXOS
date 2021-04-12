@@ -92,8 +92,8 @@ namespace LES30EXOS
             //DisplayTriangle(number,pattern);
 
             //Exo18
-            Console.WriteLine("Display Pyramide");
-            DisplayPyramide();
+            //Console.WriteLine("Display Pyramide");
+            //DisplayPyramide();
         }
 
         static float[] GetEntriesFloatNumberFromCmdLine()
@@ -450,6 +450,32 @@ namespace LES30EXOS
             string pattern = GetStringFromCmdLine("Entrez le motif de la pyramide");
             //on écrit les espaces(avec comme nbre max largeur puis tous les patterns avec nb_motif
             int nb_motif = 1;
+            int nb_espaces = hauteur;
+            for (int ligne = 0; ligne < hauteur; ligne++)
+            {
+                int xpos = 0;
+                while (xpos != nb_espaces)
+                {
+                    xpos++;
+                    Console.Write(" ");
+                }
+                for (int j = 0; j < nb_motif; j++)
+                {
+                    Console.Write(pattern);
+                }
+                nb_espaces--;
+                nb_motif += 2;
+                Console.WriteLine("");
+            }
+            
+        }
+
+        static void DisplayDiamond()
+        {
+            int hauteur = GetIntegerFromCmdLine("Entrez la hauteur de la pyramide");
+            string pattern = GetStringFromCmdLine("Entrez le motif de la pyramide");
+            //on écrit les espaces(avec comme nbre max largeur puis tous les patterns avec nb_motif
+            int nb_motif = 1;
             int largeur = hauteur;
             for (int y = 0; y < hauteur; y++)
             {
@@ -467,7 +493,7 @@ namespace LES30EXOS
                 nb_motif += 2;
                 Console.WriteLine("");
             }
-            
+
         }
     }
 }
