@@ -38,16 +38,44 @@ namespace LES30EXOS
             //Console.WriteLine("La moyenne est de " + DisplayMean());
 
             //Exo8
-            Console.WriteLine("Affiche le plus grand des nombres");
-            Console.WriteLine("Le plus grand nombre est :" + BiggestNumber());
+            //Console.WriteLine("Affiche le plus grand des nombres");
+            //Console.WriteLine("Le plus grand nombre est :" + BiggestNumber());
+
+            //Exo10
+            Console.WriteLine("Pair or not Pair");
+            int[] ArrayNumbers = GetEntriesIntegerNumberFromCmdLine();
+            for (int i = 0; i < ArrayNumbers.Length; i++)
+            {
+                if(IsPair(ArrayNumbers[i]))
+                    Console.WriteLine("Nombre Pair");
+                else
+                    Console.WriteLine("Nombre Impair");
+            }
+            
+
         }
 
-        static float[] GetEntriesNumberFromCmdLine()
+        static float[] GetEntriesFloatNumberFromCmdLine()
         {
 
             int EntriesNumber = GetIntegerFromCmdLine("Combien de chiffres devez vous entrer?");
 
             float[] ArrayNumbers = new float[EntriesNumber];
+
+            for (int i = 0; i < EntriesNumber; i++)
+            {
+                ArrayNumbers[i] = GetIntegerFromCmdLine("Entrez un chiffre");
+            }
+
+            return ArrayNumbers;
+        }
+
+        static int[] GetEntriesIntegerNumberFromCmdLine()
+        {
+
+            int EntriesNumber = GetIntegerFromCmdLine("Combien de chiffres devez vous entrer?");
+
+            int[] ArrayNumbers = new int[EntriesNumber];
 
             for (int i = 0; i < EntriesNumber; i++)
             {
@@ -124,30 +152,40 @@ namespace LES30EXOS
 
         static string DisplayEqualNumbers()
         {
-            int chiffre1 = GetIntegerFromCmdLine("Entrez un chiffre");
-            int chiffre2 = GetIntegerFromCmdLine("Entrez un autre chiffre");
+            int[] ArrayNumbers = GetEntriesIntegerNumberFromCmdLine();
 
-            if (chiffre1 == chiffre2)
-                return String.Format("{0} {1}", chiffre1, chiffre2);
+            if (ArrayNumbers.Length == 2)
+            {
+                if (ArrayNumbers[0] == ArrayNumbers[1])
+                    return String.Format("{0} {1}", ArrayNumbers[0], ArrayNumbers[1]);
+                else
+                    return "";
+            }
             else
-                return "";
+                return "Incorrect Number of numbers : Should be 2";
         }
 
         static string DisplaySwitchAndDisplay2Numbers()
         {
 
-            int[] ArrayNumbers = { GetIntegerFromCmdLine("Entrez un chiffre"), GetIntegerFromCmdLine("Entrez un autre chiffre") };
-            Console.WriteLine(ArrayNumbers[0] + " " + ArrayNumbers[1]);
-            int tmp = ArrayNumbers[0];
-            ArrayNumbers[0] = ArrayNumbers[1];
-            ArrayNumbers[1] = tmp;
+            int[] ArrayNumbers = GetEntriesIntegerNumberFromCmdLine();
+            if (ArrayNumbers.Length == 2)
+            {
+                Console.WriteLine(ArrayNumbers[0] + " " + ArrayNumbers[1]);
+                int tmp = ArrayNumbers[0];
+                ArrayNumbers[0] = ArrayNumbers[1];
+                ArrayNumbers[1] = tmp;
 
-            return String.Format("{0} {1}", ArrayNumbers[0], ArrayNumbers[1]);
+                return String.Format("{0} {1}", ArrayNumbers[0], ArrayNumbers[1]);
+            }
+            else
+                return "Incorrect Number of numbers : Should be 2";
+
         }
 
         static float[] AddSubstractDivideMultiple2Numbers()
         {
-            float[] ArrayNumbers = GetEntriesNumberFromCmdLine();
+            float[] ArrayNumbers = GetEntriesFloatNumberFromCmdLine();
             float[] ArrayResults = new float[ArrayNumbers.Length];
 
             if (ArrayNumbers.Length == 2)
@@ -188,7 +226,7 @@ namespace LES30EXOS
 
         static float DisplayMean()
         {
-            float[] ArrayNumbers = GetEntriesNumberFromCmdLine();
+            float[] ArrayNumbers = GetEntriesFloatNumberFromCmdLine();
 
 
             float mean = 0;
@@ -203,7 +241,7 @@ namespace LES30EXOS
         static float BiggestNumber()
         {
             float biggestNumber;
-            float[] Enb = GetEntriesNumberFromCmdLine();
+            float[] Enb = GetEntriesFloatNumberFromCmdLine();
             biggestNumber = Enb[0];
             for (int i = 1; i < Enb.Length; i++)
             {
@@ -212,6 +250,15 @@ namespace LES30EXOS
             }
 
             return biggestNumber;
+        }
+
+        static bool IsPair(int chiffre = 0)
+        {
+            bool isPair = false;
+            if (chiffre % 2 != 0)
+                isPair = true;
+            
+            return isPair;
         }
     }
 }
