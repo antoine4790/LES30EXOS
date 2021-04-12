@@ -41,6 +41,10 @@ namespace LES30EXOS
             //Console.WriteLine("Affiche le plus grand des nombres");
             //Console.WriteLine("Le plus grand nombre est :" + BiggestNumber());
 
+            //Exo9
+            Console.WriteLine("CheckSign");
+            GetIntegerFromCmdLine("Entrez un chiffre pour vérifier son signe", true);
+
             //Exo10
             //Console.WriteLine("Pair or not Pair");
             //int[] ArrayNumbers = GetEntriesIntegerNumberFromCmdLine();
@@ -67,6 +71,10 @@ namespace LES30EXOS
             //Exo13:
             //Console.WriteLine("Enter correct password");
             //EnterPassword();
+
+            //Exo14
+            Console.WriteLine("Display a arithmetic operation");
+            Console.WriteLine(DisplayArithmeticOperation());
         }
 
         static float[] GetEntriesFloatNumberFromCmdLine()
@@ -103,6 +111,9 @@ namespace LES30EXOS
         {
 
             int EntriesNumber = GetIntegerFromCmdLine("Combien de mots devez vous entrer?");
+            //Check if positive
+            while (CheckSignOfInteger(EntriesNumber))
+                EntriesNumber = GetIntegerFromCmdLine("Combien de mots devez vous entrer?");
 
             string[] ArrayWords = new string[EntriesNumber];
 
@@ -140,15 +151,17 @@ namespace LES30EXOS
             return isNegative;
         }
 
-        static int GetIntegerFromCmdLine(string question = "Quelle est la valeur?")
+        static int GetIntegerFromCmdLine(string question = "Quelle est la valeur?", bool checkSign=false)
         {
             if (int.TryParse(GetStringFromCmdLine(question), out int integer_input))
             {
-                if (CheckSignOfInteger(integer_input))
-                    Console.WriteLine(integer_input + " est négatif");
-                else
-                    Console.WriteLine(integer_input + " est positif");
-
+                if (checkSign)
+                {
+                    if (CheckSignOfInteger(integer_input))
+                        Console.WriteLine(integer_input + " est négatif");
+                    else
+                        Console.WriteLine(integer_input + " est positif");
+                }
                 return integer_input;
             }
             else
@@ -336,6 +349,35 @@ namespace LES30EXOS
                 Console.WriteLine("Password correct, You can go");
             else
                 Console.WriteLine("You got blocked, unsuccessful intents !");
+        }
+
+        static string DisplayArithmeticOperation()
+        {
+            string[] ArrayOperators = GetEntriesStringsFromCmdLine();
+            bool hasNotArithmeticOperator = false;
+
+            if (ArrayOperators.Length != 3)
+            {
+                Console.WriteLine("Incorrect number of arguments");
+                return String.Join(" ", ArrayOperators);
+            }
+            for (int i = 0; i < ArrayOperators.Length; i++)
+            {
+                if (!hasNotArithmeticOperator &&
+                    ArrayOperators[i] == "/" ||
+                    ArrayOperators[i] == "+" ||
+                    ArrayOperators[i] == "-" ||
+                    ArrayOperators[i] == "*")
+                {
+                    hasNotArithmeticOperator = true;
+                    return String.Format("This is arithmetical operation : {0}", String.Join(" ", ArrayOperators));
+                }
+            }
+
+            return String.Format("This is not arithmetical operation : {0}", String.Join(" ", ArrayOperators));
+
+
+
         }
     }
 }
