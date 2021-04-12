@@ -86,8 +86,14 @@ namespace LES30EXOS
             //DisplayTenMultiplicationTable();
 
             //Exo17
-            Console.WriteLine("Display a triangle with a letter of your choice");
-            DisplayTriangle();
+            //Console.WriteLine("Display a triangle with a letter of your choice");
+            //int number = GetIntegerFromCmdLine("Entrez la taille du triangle");
+            //string pattern = GetStringFromCmdLine("Motif pour dessiner le triangle?");
+            //DisplayTriangle(number,pattern);
+
+            //Exo18
+            Console.WriteLine("Display Pyramide");
+            DisplayPyramide();
         }
 
         static float[] GetEntriesFloatNumberFromCmdLine()
@@ -425,11 +431,8 @@ namespace LES30EXOS
                 Console.WriteLine("10 x {0} = {1}", ArrayNumbers[i], 10 * ArrayNumbers[i]);
         }
 
-        static void DisplayTriangle()
+        static void DisplayTriangle(int number=0, string pattern="*")
         {
-            int number = GetIntegerFromCmdLine("Entrez la taille du triangle");
-            string pattern = GetStringFromCmdLine("Motif pour dessiner le triangle?");
-
             for (int i = 0; i <= number; i++)
             {
                 for (int j = 0; j < i; j++)
@@ -439,6 +442,32 @@ namespace LES30EXOS
                 Console.WriteLine("");
             }
 
+        }
+
+        static void DisplayPyramide()
+        {
+            int hauteur = GetIntegerFromCmdLine("Entrez la hauteur de la pyramide");
+            string pattern = GetStringFromCmdLine("Entrez le motif de la pyramide");
+            //on écrit les espaces(avec comme nbre max largeur puis tous les patterns avec nb_motif
+            int nb_motif = 1;
+            int largeur = hauteur;
+            for (int y = 0; y < hauteur; y++)
+            {
+                int xpos = 0;
+                while (xpos != largeur)
+                {
+                    xpos++;
+                    Console.Write(" ");
+                }
+                for (int j = 0; j < nb_motif; j++)
+                {
+                    Console.Write(pattern);
+                }
+                largeur--;
+                nb_motif += 2;
+                Console.WriteLine("");
+            }
+            
         }
     }
 }
