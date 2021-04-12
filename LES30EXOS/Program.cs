@@ -79,11 +79,15 @@ namespace LES30EXOS
             //Exo15
             //Console.WriteLine("Display 10 first numbers");
             //int[] ArrayNumbers = ReturnTenFirstNumbers(10,true);
-           
+
 
             //Exo16
-            Console.WriteLine("Display Multiplication Table Of 10");
-            DisplayTenMultiplicationTable();
+            //Console.WriteLine("Display Multiplication Table Of 10");
+            //DisplayTenMultiplicationTable();
+
+            //Exo17
+            Console.WriteLine("Display a triangle with a letter of your choice");
+            DisplayTriangle();
         }
 
         static float[] GetEntriesFloatNumberFromCmdLine()
@@ -419,6 +423,22 @@ namespace LES30EXOS
             int[] ArrayNumbers = ReturnTenFirstNumbers(11);
             for (int i = 0; i < ArrayNumbers.Length; i++)
                 Console.WriteLine("10 x {0} = {1}", ArrayNumbers[i], 10 * ArrayNumbers[i]);
+        }
+
+        static void DisplayTriangle()
+        {
+            int number = GetIntegerFromCmdLine("Entrez la taille du triangle");
+            string pattern = GetStringFromCmdLine("Motif pour dessiner le triangle?");
+
+            for (int i = 0; i <= number; i++)
+            {
+                for (int j = 0; j < i; j++)
+                {
+                    Console.Write(pattern);
+                }
+                Console.WriteLine("");
+            }
+
         }
     }
 }
