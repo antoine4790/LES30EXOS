@@ -1,4 +1,5 @@
 ﻿using System;
+using static System.Console;
 
 namespace LES30EXOS
 {
@@ -10,95 +11,95 @@ namespace LES30EXOS
             //HelloWorld();
 
             //Exo2
-            //Console.WriteLine("voici votre valeur :" + GetStringFromCmdLine());
-            //Console.WriteLine("voici votre valeur :" + GetIntegerFromCmdLine());
+            //WriteLine("voici votre valeur :" + GetStringFromCmdLine());
+            //WriteLine("voici votre valeur :" + GetIntegerFromCmdLine());
 
             //Exo3
-            //Console.WriteLine("Inverse trois mots");
-            //Console.WriteLine(SwitchOrder());
+            //WriteLine("Inverse trois mots");
+            //WriteLine(SwitchOrder());
 
             //Exo4 
-            //Console.WriteLine("Affiche si les 2 nombres sont égaux");
-            //Console.WriteLine(DisplayEqualNumbers());
+            //WriteLine("Affiche si les 2 nombres sont égaux");
+            //WriteLine(DisplayEqualNumbers());
 
             //Exo5
-            //Console.WriteLine("Affiche inverse et affiche 2 nombres");
-            //Console.WriteLine(DisplaySwitchAndDisplay2Numbers());
+            //WriteLine("Affiche inverse et affiche 2 nombres");
+            //WriteLine(DisplaySwitchAndDisplay2Numbers());
 
             //Exo6
-            //Console.WriteLine("Operations Addition Soustraction Division Multiplication");
+            //WriteLine("Operations Addition Soustraction Division Multiplication");
             //float[] ArrayResults= AddSubstractDivideMultiple2Numbers();
             //for (int i = 0; i < ArrayResults.Length; i++)
             //{
-            //    Console.WriteLine(ArrayResults[i]);
+            //    WriteLine(ArrayResults[i]);
             //}
 
             //Exo7
-            //Console.WriteLine("Moyenne");
-            //Console.WriteLine("La moyenne est de " + DisplayMean());
+            //WriteLine("Moyenne");
+            //WriteLine("La moyenne est de " + DisplayMean());
 
             //Exo8
-            //Console.WriteLine("Affiche le plus grand des nombres");
-            //Console.WriteLine("Le plus grand nombre est :" + BiggestNumber());
+            //WriteLine("Affiche le plus grand des nombres");
+            //WriteLine("Le plus grand nombre est :" + BiggestNumber());
 
             //Exo9
-            //Console.WriteLine("CheckSign");
+            //WriteLine("CheckSign");
             //GetIntegerFromCmdLine("Entrez un chiffre pour vérifier son signe", true);
 
             //Exo10
-            //Console.WriteLine("Pair or not Pair");
+            //WriteLine("Pair or not Pair");
             //int[] ArrayNumbers = GetEntriesIntegerNumberFromCmdLine();
             //for (int i = 0; i < ArrayNumbers.Length; i++)
             //{
             //    if(IsPair(ArrayNumbers[i]))
-            //        Console.WriteLine("Nombre Pair");
+            //        WriteLine("Nombre Pair");
             //    else
-            //        Console.WriteLine("Nombre Impair");
+            //        WriteLine("Nombre Impair");
             //}
 
             //Exo11
-            //Console.WriteLine("Convert to Kelvin and Fahrenheit");
+            //WriteLine("Convert to Kelvin and Fahrenheit");
             //float[] ArrayNumbers = GetEntriesFloatNumberFromCmdLine();
             //for (int i = 0; i < ArrayNumbers.Length; i++)
             //{
-            //    Console.WriteLine(String.Format("{0}°C  donne {1}°F  et {2}°K", ArrayNumbers[i], CelsiusToFahrenheit(ArrayNumbers[i]), CelsiusToKelvin(ArrayNumbers[i])));
+            //    WriteLine(String.Format("{0}°C  donne {1}°F  et {2}°K", ArrayNumbers[i], CelsiusToFahrenheit(ArrayNumbers[i]), CelsiusToKelvin(ArrayNumbers[i])));
             //}
 
             //Exo12
-            //Console.WriteLine("Day of Week");
-            //Console.WriteLine(DayOfWeek(GetIntegerFromCmdLine()));
+            //WriteLine("Day of Week");
+            //WriteLine(DayOfWeek(GetIntegerFromCmdLine()));
 
             //Exo13:
-            //Console.WriteLine("Enter correct password");
+            //WriteLine("Enter correct password");
             //EnterPassword();
 
             //Exo14
-            //Console.WriteLine("Display a arithmetic operation");
-            //Console.WriteLine(DisplayArithmeticOperation());
+            //WriteLine("Display a arithmetic operation");
+            //WriteLine(DisplayArithmeticOperation());
 
             //Exo15
-            //Console.WriteLine("Display 10 first numbers");
+            //WriteLine("Display 10 first numbers");
             //int[] ArrayNumbers = ReturnTenFirstNumbers(10,true);
 
 
             //Exo16
-            //Console.WriteLine("Display Multiplication Table Of 10");
+            //WriteLine("Display Multiplication Table Of 10");
             //DisplayTenMultiplicationTable();
 
             //Exo17
-            //Console.WriteLine("Display a triangle with a letter of your choice");
+            //WriteLine("Display a triangle with a letter of your choice");
             //int number = GetIntegerFromCmdLine("Entrez la taille du triangle");
             //string pattern = GetStringFromCmdLine("Motif pour dessiner le triangle?");
             //DisplayTriangle(number,pattern);
 
             //Exo18
-            //Console.WriteLine("Display Pyramide");
+            //WriteLine("Display Pyramide");
             //int hauteur = GetIntegerFromCmdLine("Entrez la hauteur de la pyramide");
             //string pattern = GetStringFromCmdLine("Entrez le motif de la pyramide");
             //DisplayPyramide(hauteur,pattern);
 
             //Exo19
-            //Console.WriteLine("Display Diamant");
+            //WriteLine("Display Diamant");
             //int hauteur = GetIntegerFromCmdLine("Entrez la hauteur du diamant");
             //string pattern = GetStringFromCmdLine("Entrez le motif du diamant");
             //DisplayDiamant(hauteur,pattern);
@@ -154,12 +155,12 @@ namespace LES30EXOS
 
         static void HelloWorld()
         {
-            Console.WriteLine("Hello World!");
+            WriteLine("Hello World!");
         }
 
         static string GetStringFromCmdLine(string question = "Quelle est la valeur?")
         {
-            Console.WriteLine(question);
+            WriteLine(question);
             string input = Console.ReadLine();
 
             return input;
@@ -173,7 +174,7 @@ namespace LES30EXOS
             else if (number > 0)
                 isNegative = false;
             else
-                Console.WriteLine("Vous avez entré 0 comme chiffre");
+                WriteLine("Vous avez entré 0 comme chiffre");
 
             return isNegative;
         }
@@ -185,14 +186,14 @@ namespace LES30EXOS
                 if (checkSign)
                 {
                     if (CheckSignOfInteger(integer_input))
-                        Console.WriteLine(integer_input + " est négatif");
+                        WriteLine(integer_input + " est négatif");
                     else
-                        Console.WriteLine(integer_input + " est positif");
+                        WriteLine(integer_input + " est positif");
                 }
                 return integer_input;
             }
             else
-                Console.WriteLine("Ceci n'est pas un chiffre");
+                WriteLine("Ceci n'est pas un chiffre");
             return -1;
         }
 
@@ -225,7 +226,7 @@ namespace LES30EXOS
             int[] ArrayNumbers = GetEntriesIntegerNumberFromCmdLine();
             if (ArrayNumbers.Length == 2)
             {
-                Console.WriteLine(ArrayNumbers[0] + " " + ArrayNumbers[1]);
+                WriteLine(ArrayNumbers[0] + " " + ArrayNumbers[1]);
                 int tmp = ArrayNumbers[0];
                 ArrayNumbers[0] = ArrayNumbers[1];
                 ArrayNumbers[1] = tmp;
@@ -367,15 +368,15 @@ namespace LES30EXOS
                     break;
                 else
                 {
-                    Console.WriteLine("Password incorrect!");
+                    WriteLine("Password incorrect!");
                     intent++;
                 }
 
             }
             if (password == secretPassword)
-                Console.WriteLine("Password correct, You can go");
+                WriteLine("Password correct, You can go");
             else
-                Console.WriteLine("You got blocked, unsuccessful intents !");
+                WriteLine("You got blocked, unsuccessful intents !");
         }
 
         static string DisplayArithmeticOperation()
@@ -385,7 +386,7 @@ namespace LES30EXOS
 
             if (ArrayOperators.Length != 3)
             {
-                Console.WriteLine("Incorrect number of arguments");
+                WriteLine("Incorrect number of arguments");
                 return String.Join(" ", ArrayOperators);
             }
             for (int i = 0; i < ArrayOperators.Length; i++)
@@ -423,7 +424,7 @@ namespace LES30EXOS
             {
                 if (CheckDisplayLimit(i, maxToDisplay))
                 {
-                    if (display) Console.WriteLine(i);
+                    if (display) WriteLine(i);
                     ArrayNumbers[i] = i;
                 }
                 else
@@ -436,23 +437,23 @@ namespace LES30EXOS
         {
             int[] ArrayNumbers = ReturnTenFirstNumbers(11);
             for (int i = 0; i < ArrayNumbers.Length; i++)
-                Console.WriteLine("10 x {0} = {1}", ArrayNumbers[i], 10 * ArrayNumbers[i]);
+                WriteLine("10 x {0} = {1}", ArrayNumbers[i], 10 * ArrayNumbers[i]);
         }
 
-        static void DisplayTriangle(int number=0, string pattern="*")
+        static void DisplayTriangle(int hauteur = 0, string pattern = "")
         {
-            for (int i = 0; i <= number; i++)
+            for (int i = 0; i <= hauteur; i++)
             {
                 for (int j = 0; j < i; j++)
                 {
                     Console.Write(pattern);
                 }
-                Console.WriteLine("");
+                WriteLine("");
             }
 
         }
 
-        static void DisplayPyramide(int hauteur=0, string pattern="")
+        static void DisplayPyramide(int hauteur = 0, string pattern = "")
         {
             
             //on écrit les espaces(avec comme nbre max nb_espaces puis les patterns avec nb_motif
@@ -472,7 +473,7 @@ namespace LES30EXOS
                 }
                 nb_espaces--;
                 nb_motif += 2;
-                Console.WriteLine("");
+                WriteLine("");
             }
             
         }
@@ -500,9 +501,11 @@ namespace LES30EXOS
                     Console.Write(pattern);
                 }
                 nb_motifs -= 2;
-                Console.WriteLine("");
+                WriteLine("");
             }
 
         }
+
+
     }
 }
