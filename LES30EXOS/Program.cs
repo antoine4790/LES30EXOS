@@ -83,8 +83,8 @@ namespace LES30EXOS
 
 
             //Exo16
-            //WriteLine("Display Multiplication Table Of 10");
-            //DisplayTenMultiplicationTable();
+            WriteLine("Display Multiplication Table Of 10");
+            DisplayTenMultiplicationTable();
 
             //Exo17
             //WriteLine("Display a triangle with a letter of your choice");
@@ -107,7 +107,6 @@ namespace LES30EXOS
 
         static float[] GetEntriesFloatNumberFromCmdLine()
         {
-
             int EntriesNumber = GetIntegerFromCmdLine("Combien de chiffres devez vous entrer?");
 
             float[] ArrayNumbers = new float[EntriesNumber];
@@ -122,7 +121,6 @@ namespace LES30EXOS
 
         static int[] GetEntriesIntegerNumberFromCmdLine()
         {
-
             int EntriesNumber = GetIntegerFromCmdLine("Combien de chiffres devez vous entrer?");
 
             int[] ArrayNumbers = new int[EntriesNumber];
@@ -137,7 +135,6 @@ namespace LES30EXOS
 
         static string[] GetEntriesStringsFromCmdLine()
         {
-
             int EntriesNumber = GetIntegerFromCmdLine("Combien de mots devez vous entrer?");
             //Check if positive
             while (CheckSignOfInteger(EntriesNumber))
@@ -199,7 +196,6 @@ namespace LES30EXOS
 
         static string SwitchOrder()
         {
-
             string[] WordsArray = GetEntriesStringsFromCmdLine();
 
             return String.Format("{0} {1} {2}", WordsArray[2], WordsArray[1], WordsArray[0]);
@@ -222,7 +218,6 @@ namespace LES30EXOS
 
         static string DisplaySwitchAndDisplay2Numbers()
         {
-
             int[] ArrayNumbers = GetEntriesIntegerNumberFromCmdLine();
             if (ArrayNumbers.Length == 2)
             {
@@ -235,7 +230,6 @@ namespace LES30EXOS
             }
             else
                 return "Incorrect Number of numbers : Should be 2";
-
         }
 
         static float[] AddSubstractDivideMultiple2Numbers()
@@ -253,8 +247,6 @@ namespace LES30EXOS
             }
             else
                 ArrayResults = ArrayNumbers;
-
-
 
             return ArrayResults;
         }
@@ -282,7 +274,6 @@ namespace LES30EXOS
         static float DisplayMean()
         {
             float[] ArrayNumbers = GetEntriesFloatNumberFromCmdLine();
-
 
             float mean = 0;
             for (int i = 0; i < ArrayNumbers.Length; i++)
@@ -356,7 +347,6 @@ namespace LES30EXOS
 
         static void EnterPassword()
         {
-
             string secretPassword = "Zouzou";
             int intent = 0;
             int max_intents = 3;
@@ -414,7 +404,6 @@ namespace LES30EXOS
                 return true;
             else
                 return false;
-
         }
 
         static int[] ReturnTenFirstNumbers(int maxToDisplay,bool display = false)
@@ -450,15 +439,14 @@ namespace LES30EXOS
                 }
                 WriteLine("");
             }
-
         }
 
         static void DisplayPyramide(int hauteur = 0, string pattern = "")
         {
-            
             //on écrit les espaces(avec comme nbre max nb_espaces puis les patterns avec nb_motif
             int nb_motif = 1;
             int nb_espaces = hauteur;
+
             for (int ligne = 0; ligne < hauteur; ligne++)
             {
                 int xpos = 0;
@@ -486,9 +474,9 @@ namespace LES30EXOS
             int hauteurBasDiamant = hauteur - hauteurPyramide;
             int nb_motifs = (hauteur % 2 == 0) ? hauteur -1 : hauteur - 2;
             int nb_espaces = (hauteur % 2 == 0) ? 1 : 2;
+            
             for (int ligne = 0; ligne < hauteurBasDiamant; ligne++)
             {
-
                 int xpos = 0;
                 while (xpos != nb_espaces)
                 {
@@ -503,9 +491,6 @@ namespace LES30EXOS
                 nb_motifs -= 2;
                 WriteLine("");
             }
-
         }
-
-
     }
 }
