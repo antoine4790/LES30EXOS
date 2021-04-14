@@ -124,11 +124,11 @@ namespace ExosClasses
             //}
 
             //Contains avec les listes
-            List<Personne> personnes = new List<Personne> { new Personne("Leleu","Antoine",DateTime.Now),
-                                                            new Personne("Leleu","Arthur",DateTime.Now),
-                                                            new Personne("Leleu","AAAA",DateTime.Now),
-                                                            new Personne("Lala", "Jack", DateTime.Now),
-                                                            new Personne("AAAA", "David", DateTime.Now) };
+            //List<Personne> personnes = new List<Personne> { new Personne("Leleu","Antoine",DateTime.Now),
+            //                                                new Personne("Leleu","Arthur",DateTime.Now),
+            //                                                new Personne("Leleu","AAAA",DateTime.Now),
+            //                                                new Personne("Lala", "Jack", DateTime.Now),
+            //                                                new Personne("AAAA", "David", DateTime.Now) };
             //Il faut implementer L'interface IEquatable et coder la methode equals pour pouvoir comparer 2 objets car ca n'existe pas par default
             //if (personnes.Contains(new Personne("Luke", "Antoine", DateTime.Now)))
             //{
@@ -138,20 +138,37 @@ namespace ExosClasses
             //    Console.WriteLine("Pas d'Egalité");
 
             //Tri de la liste par Nom
-            personnes.Sort();
-            foreach (var item in personnes)
-            {
-                Console.WriteLine(item);
-            }
-            Console.WriteLine();
+            //personnes.Sort();
+            //foreach (var item in personnes)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Console.WriteLine();
 
             //Tri avec IComparer en utilisant la nouvelle classe ComparableNomPrenom
-            //En cas de noms égaux et de prenoms differents , le prenom sera trié
-            personnes.Sort(new ComparableNomPrenom());
-            foreach (var item in personnes)
-            {
-                Console.WriteLine(item);
-            }
+            //En cas de noms égaux et de prenoms differents, le prenom sera trié
+            //personnes.Sort(new ComparableNomPrenom());
+            //foreach (var item in personnes)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            //Test Stack et Queues
+            //Stack<Personne> personnes = new Stack<Personne>(5);
+            //personnes.Push(new Personne("Leleu", "Antoine", DateTime.Now));
+            //personnes.Push(new Personne("Leleu", "Arthur", DateTime.Now));
+            //Console.WriteLine(personnes.Peek());
+            //personnes.Pop();
+            //Console.WriteLine(personnes.Peek());
+
+            Queue<Personne> personnes = new Queue<Personne>();
+            personnes.Enqueue(new Personne("Leleu", "Antoine", DateTime.Now));
+            Console.WriteLine(personnes.Peek());
+            personnes.Enqueue(new Personne("Leleu", "Arthur", DateTime.Now));
+            Console.WriteLine(personnes.Peek());
+            Console.WriteLine(personnes.Dequeue());
+            Console.WriteLine(personnes.Peek());
+            Console.WriteLine(personnes.Dequeue());
         }
     }
 }
