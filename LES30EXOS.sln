@@ -5,9 +5,9 @@ VisualStudioVersion = 16.0.31129.286
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LES30EXOS", "LES30EXOS\LES30EXOS.csproj", "{E5FB24FC-FD4E-4136-9FFB-1AF723E40EB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary", "ClassLibrary1\ClassLibrary.csproj", "{AE580CF7-C0DB-4D0C-A8AE-167B895A72A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassLibrary", "ClassLibrary1\ClassLibrary.csproj", "{AE580CF7-C0DB-4D0C-A8AE-167B895A72A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExosSurClasses", "ExosClasses\ExosSurClasses.csproj", "{91C19571-C374-4610-847F-D77CABE96BBC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExosSurClasses", "ExosClasses\ExosSurClasses.csproj", "{91C19571-C374-4610-847F-D77CABE96BBC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

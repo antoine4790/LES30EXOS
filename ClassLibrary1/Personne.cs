@@ -1,19 +1,61 @@
 ﻿using System;
 
-namespace ClassLibrary1
-{
-    public class Personne
-    {
-        public string nom;
-        public string prenom;
-        public DateTime dateNaissance;
 
-        public string Nom { get; set; }
+namespace ClassLibrary
+{
+    public class Personne : ITravailleur,IEquatable<Personne>, IComparable<Personne>
+    {
+        public static string test ="HelloWorld";
+        
+        private string nom;
+        private string prenom;
+        private DateTime dateNaissance;
+
+        public Personne(string nom, string prenom, DateTime dateNaissance)
+        {
+            Nom = nom;
+            Prenom = prenom;
+            DateNaissance = dateNaissance;
+        }
+
+        public Personne()
+        {
+        }
+
+        public string Nom { get;set; }
         public string Prenom { get; set; }
         public DateTime DateNaissance { get; set; }
 
-        public void MajPrenom() {
-            Nom = Nom.ToUpper();
+        public virtual void MajPrenom() {
+            Prenom = Prenom.ToUpper();
+        }
+
+        public override string ToString()
+        {
+            return $"{base.ToString()}    {Nom}  {Prenom}  {DateNaissance}";
+        }
+
+        public virtual string Afficher()
+        {
+            return String.Format("{0} {1} {2}", Nom, Prenom, DateNaissance);
+        }
+
+
+        public bool Equals(Personne other)
+        {
+            if (Nom == other.Nom && Prenom==other.Prenom)
+            {
+                return true;
+            }
+            else
+                return false;
+            throw new NotImplementedException();
+        }
+
+        public int CompareTo(Personne other)
+        {
+            return Nom.CompareTo(other.Nom);
+            throw new NotImplementedException();
         }
     }
 }
