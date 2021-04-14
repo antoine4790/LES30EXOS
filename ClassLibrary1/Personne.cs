@@ -32,7 +32,8 @@ namespace ClassLibrary
 
         public override string ToString()
         {
-            return $"{base.ToString()}    {Nom}  {Prenom}  {DateNaissance}";
+            //return $"{base.ToString()}    {Nom}  {Prenom}  {DateNaissance}";
+            return $"{Nom}  {Prenom}  {DateNaissance}";
         }
 
         public virtual string Afficher()

@@ -139,19 +139,15 @@ namespace ExosClasses
 
             //Tri de la liste par Nom
             //personnes.Sort();
-            //foreach (var item in personnes)
-            //{
-            //    Console.WriteLine(item);
-            //}
+            //WriteLine(string.Join("\n", personnes));
             //Console.WriteLine();
 
             //Tri avec IComparer en utilisant la nouvelle classe ComparableNomPrenom
+            //C'est une autre manière de comparer avec sort()
             //En cas de noms égaux et de prenoms differents, le prenom sera trié
             //personnes.Sort(new ComparableNomPrenom());
-            //foreach (var item in personnes)
-            //{
-            //    Console.WriteLine(item);
-            //}
+
+            //WriteLine(string.Join("\n", personnes));
 
             //Test Stack et Queues
             //Stack<Personne> personnes = new Stack<Personne>(5);
