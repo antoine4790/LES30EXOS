@@ -1,14 +1,16 @@
 ﻿using ClassLibrary;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using static ClassLibrary.SampleDatas;
 
-namespace Linq
+
+namespace LinqEtExceptions
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             //Console.WriteLine("Somme de d'une liste d'entiers!");
             //List<int> numberlist = new List<int>() { 0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 9 };
@@ -46,8 +48,8 @@ namespace Linq
             //Exo 8
             //var nomsPersonnes = personnes.Where(p => p.Nom.StartsWith("D")).
             //    OrderByDescending(p => p.Prenom).
-            //    Select(p => new { nom = p.Nom.ToUpper(), prenom =p.Prenom }).ToList();
-
+            //    Select(p => new { nom = p.Nom.ToUpper(), prenom = p.Prenom }).ToList();
+            //// dans le select on peut recuperer le nom et le prenom separement avec le nommage dans l'objet anonyme crée avec new
             ////On recupere ici une liste avec des elements anonymes accessibles via nomList.attribut
             //foreach (var item in nomsPersonnes)
             //{
@@ -80,12 +82,61 @@ namespace Linq
             //}
 
             //Exo13
-            var groupedbyprenoms = personnes.GroupBy( p => p.Prenom).ToList();
-            foreach (var item in groupedbyprenoms)
+            //var groupedbyprenoms = personnes.GroupBy( p => p.Prenom).ToList();
+            //foreach (var item in groupedbyprenoms)
+            //{
+            //    Console.WriteLine(item.Key);
+            //    //Console.WriteLine(item.prenom);
+            //}
+
+            //Exceptions
+
+            static double diviser(double nb1, double nb2)
             {
-                Console.WriteLine(item.Key);
-                //Console.WriteLine(item.prenom);
+                try
+                {
+                    if (nb2 != 0)
+                        return nb1 / nb2;
+                    else
+                        throw new ExceptionDivision("Impossible de diviser par 0");
+                }
+                //gestion de la division par 0
+                catch (Exception e)
+                {
+                    Console.WriteLine($"Voici l'erreur {e} .");
+                    return 0;
+                }
+
             }
+
+            //OK
+            //Console.WriteLine(diviser(1, 9));
+            //////Exception
+            ////Console.WriteLine( diviser(9, 0));
+            //try
+            //{
+            //    Eleve eleve1 = new Eleve("Antoine", 21, 10);
+            //    eleve1.Age = 20;
+            //    Console.WriteLine(eleve1.Age);
+            //    eleve1.Moyenne = 19;
+            //    Console.WriteLine(eleve1.Moyenne);
+            //    eleve1.Moyenne = 21.2;
+            //}
+            //catch (InvalidAgeException e)
+            //{
+            //    Console.WriteLine($"Voici l'erreur : {e.Message} ");
+            //}
+            //catch (InvalidMoyenneException e)
+            //{
+            //    Console.WriteLine($"Voici l'erreur : {e.Message} ");
+            //}
+
+            // I/O
+
+            //a faire sous linux
+
+            //Parcours recursif des fichiers
+
 
         }
     }
