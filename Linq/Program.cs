@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Xml.Serialization;
 using static ClassLibrary.SampleDatas;
 
 
@@ -132,8 +133,26 @@ namespace LinqEtExceptions
             //}
 
             // I/O
+            //Ecrit le contenu d'une liste d'objets dans un fichier xml
+            //using(var fileWritestream = new FileStream("C:\\Users\\optimum\\Documents\\fomation .NET\\person.xml", FileMode.OpenOrCreate,FileAccess.Write))
+            //{
+            //    var xmlSerializer = new XmlSerializer(typeof(List<Personne>));
 
-            //a faire sous linux
+            //    xmlSerializer.Serialize(fileWritestream, new List<Personne> { new Personne { Nom = "nom" }, new Personne { Nom = "nom2" } });
+            //}
+
+            //Lit un fichier xml  pour l'envoyer en memoire dans le programme
+            //using (var fileReadstream = new FileStream("C:\\Users\\optimum\\Documents\\fomation .NET\\person.xml", FileMode.Open, FileAccess.Read))
+            //{
+            //    var xmlDeSerializer = new XmlSerializer(typeof(List<Personne>));
+
+            //    var personsFromFile = (List<Personne>)xmlDeSerializer.Deserialize(fileReadstream);
+            //    foreach (var item in personsFromFile)
+            //    {
+            //        Console.WriteLine(item);
+            //    }
+                
+            //}
 
             //Parcours recursif des fichiers
 
