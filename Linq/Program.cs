@@ -138,6 +138,51 @@ namespace LinqEtExceptions
             //Parcours recursif des fichiers
 
 
+            static void DisplayAllFiles(DirectoryInfo DirInfo, int niveau)
+            {
+                niveau += 1;
+                //List<DirectoryInfo> dirs = new List<DirectoryInfo>(DirInfo.GetDirectories());
+                try
+                {
+                    foreach (var item in DirInfo.GetDirectories())
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        for (int i = 0; i < niveau; i++)
+                        {
+                            Console.Write(".");
+                        }
+                        Console.WriteLine(item.Name);
+                        DisplayAllFiles(item, niveau);
+
+                    }
+                }
+                catch (Exception e)
+                {
+
+                    Console.WriteLine($"Voici l'erreur : {e.Message} ");
+                }
+
+                foreach (var item in DirInfo.GetFiles())
+                {
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    if (item.Attributes != FileAttributes.Hidden)
+                    {
+                        for (int i = 0; i < niveau; i++)
+                        {
+                            Console.Write(".");
+                        }
+                        Console.WriteLine(item.Name);
+                    }
+
+                }
+            }
+
+            const string SOURCE_DIRECTORY = "C:\\Users\\optimum\\Documents\\fomation .NET\\";
+            //const string SOURCE_DIRECTORY = "C:\\";
+            DirectoryInfo DirectoryInfo = new DirectoryInfo(SOURCE_DIRECTORY);
+            DisplayAllFiles(DirectoryInfo, 0);
+            Console.ForegroundColor = ConsoleColor.White;
+
         }
     }
 }
