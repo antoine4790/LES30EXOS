@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExosSurClasses", "ExosClass
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LinqEtExceptions", "LinqETExceptions\LinqEtExceptions.csproj", "{9CBB1B81-8682-4166-8A24-C355E1BD1B03}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LinqEtExceptionsTests", "LinqEtExceptionsTests\LinqEtExceptionsTests.csproj", "{3AD9BBF7-9B7F-4892-BEC3-0A7F4AB37055}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryTests", "ClassLibraryTests\ClassLibraryTests.csproj", "{0BA3A1DE-4C7E-4FDF-8561-896108D9A25A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,10 @@ Global
 		{9CBB1B81-8682-4166-8A24-C355E1BD1B03}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9CBB1B81-8682-4166-8A24-C355E1BD1B03}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9CBB1B81-8682-4166-8A24-C355E1BD1B03}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3AD9BBF7-9B7F-4892-BEC3-0A7F4AB37055}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3AD9BBF7-9B7F-4892-BEC3-0A7F4AB37055}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3AD9BBF7-9B7F-4892-BEC3-0A7F4AB37055}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3AD9BBF7-9B7F-4892-BEC3-0A7F4AB37055}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BA3A1DE-4C7E-4FDF-8561-896108D9A25A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BA3A1DE-4C7E-4FDF-8561-896108D9A25A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BA3A1DE-4C7E-4FDF-8561-896108D9A25A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BA3A1DE-4C7E-4FDF-8561-896108D9A25A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

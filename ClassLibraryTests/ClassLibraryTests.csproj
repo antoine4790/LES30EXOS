@@ -14,7 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LinqEtExceptions\LinqEtExceptions.csproj" />
+    <ProjectReference Include="..\ClassLibrary\ClassLibrary.csproj" />
+    <ProjectReference Include="..\LinqETExceptions\LinqEtExceptions.csproj" />
   </ItemGroup>
 
 </Project>
