@@ -20,7 +20,7 @@ namespace ClassLibrary.Tests
             int denominateur = 0;
 
             //Act
-            double result = Tools.diviser(numerateur, denominateur);
+            Tools.diviser(numerateur, denominateur);
 
             //Assert
             //rien on attend juste une exception

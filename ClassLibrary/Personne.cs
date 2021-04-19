@@ -3,7 +3,7 @@
 
 namespace ClassLibrary
 {
-    public class Personne : ITravailleur,IEquatable<Personne>, IComparable<Personne>
+    public class Personne : ITravailleur, IEquatable<Personne>, IComparable<Personne>
     {
         public static string test ="HelloWorld";
         
@@ -22,7 +22,7 @@ namespace ClassLibrary
         {
         }
 
-        public string Nom { get;set; }
+        public string Nom {get;  set; }
         public string Prenom { get; set; }
         public DateTime DateNaissance { get; set; }
 

@@ -16,7 +16,9 @@ namespace LES30EXOS
 
             //Exo3
             //WriteLine("Inverse trois mots");
-            //WriteLine(SwitchOrder());
+
+            //string[] WordsArray = GetEntriesStringsFromParameter(3);
+            //WriteLine(SwitchOrder(WordsArray));
 
             //Exo4 
             //WriteLine("Affiche si les 2 nombres sont égaux");
@@ -83,8 +85,8 @@ namespace LES30EXOS
 
 
             //Exo16
-            WriteLine("Display Multiplication Table Of 10");
-            DisplayTenMultiplicationTable();
+            //WriteLine("Display Multiplication Table Of 10");
+            //DisplayTenMultiplicationTable();
 
             //Exo17
             //WriteLine("Display a triangle with a letter of your choice");
@@ -103,17 +105,65 @@ namespace LES30EXOS
             //int hauteur = GetIntegerFromCmdLine("Entrez la hauteur du diamant");
             //string pattern = GetStringFromCmdLine("Entrez le motif du diamant");
             //DisplayDiamant(hauteur,pattern);
+
+            //Exo 20
+            //Console.WriteLine(DateDuJourComplete());
+            //Console.WriteLine(DateDuJour());
+
+            //Exo 21
+            //Console.WriteLine("Entrez une date et récuperez le jour de la semaine");
+            //string response = GetStringFromCmdLine("Test avec la date du jour ? (O/N)");
+            //if (response == "O" || response == "o")
+            //    WriteLine(DayofSpecificDate(DateTime.Now));
+            //else
+            //{
+            //    string year = GetStringFromCmdLine("Entrez l'année :");
+            //    string month = GetStringFromCmdLine("Entrez le mois :");
+            //    string day = GetStringFromCmdLine("Entrez le jour :");
+            //    string hours = GetStringFromCmdLine("Entrez les heures :");
+            //    string minutes = GetStringFromCmdLine("Entrez les minutes :");
+            //    string seconds = GetStringFromCmdLine("Entrez les secondes :");
+
+            //    if (!IsDateTimeOK(year, month, day, hours, minutes, seconds))
+            //    {
+            //        Console.WriteLine("Erreur dans le format entré");
+            //        Console.WriteLine("La date du jour sera utilisée");
+            //        WriteLine(DayofSpecificDate(DateTime.Now));
+            //    }
+            //    DateTime.TryParse($"{year}-{month}-{day} {hours}:{minutes}:{seconds}", out DateTime date);
+            //    WriteLine(DayofSpecificDate(date));
+            //}
+
+            //Exo22
+            //DateTime date1 = GetDateTimeFromCmdLine();
+            //DateTime date2 = GetDateTimeFromCmdLine();
+            //DateTime earlierDate = GetMinDate(date1, date2);
+            //DateTime laterDate = GetMaxDate(date1, date2);
+
+
+            //Console.WriteLine("il y a {0} jours d'écart entre la date {1} et la date {2}",GetTotalDays(earlierDate, laterDate), earlierDate, laterDate);
+
+            //Exo23
+
         }
 
         static float[] GetEntriesFloatNumberFromCmdLine()
         {
-            int EntriesNumber = GetIntegerFromCmdLine("Combien de chiffres devez vous entrer?");
+            int EntriesNumber = -1;
+            //Check if positive if not and do while until it's positive 
+            //or diff from 0
+            while (CheckSignOfInteger(EntriesNumber))
+            {
+                EntriesNumber = GetIntegerFromCmdLine("Combien de nombres devez vous entrer?");
+                if (EntriesNumber == 0)
+                    WriteLine("Vous ne pouvez entrer de nombre");
+            }
 
             float[] ArrayNumbers = new float[EntriesNumber];
 
             for (int i = 0; i < EntriesNumber; i++)
             {
-                ArrayNumbers[i] = GetIntegerFromCmdLine("Entrez un chiffre");
+                ArrayNumbers[i] = GetIntegerFromCmdLine("Entrez un nombre");
             }
 
             return ArrayNumbers;
@@ -121,24 +171,54 @@ namespace LES30EXOS
 
         static int[] GetEntriesIntegerNumberFromCmdLine()
         {
-            int EntriesNumber = GetIntegerFromCmdLine("Combien de chiffres devez vous entrer?");
+            int EntriesNumber = -1;
+            //Check if positive if not and do while until it's positive 
+            //or diff from 0
+            while (CheckSignOfInteger(EntriesNumber))
+            {
+                EntriesNumber = GetIntegerFromCmdLine("Combien de nombres devez vous entrer?");
+                if (EntriesNumber == 0)
+                    Console.WriteLine("Vous ne pouvez entrer de nombre");
+            }
 
             int[] ArrayNumbers = new int[EntriesNumber];
 
             for (int i = 0; i < EntriesNumber; i++)
+                ArrayNumbers[i] = GetIntegerFromCmdLine("Entrez un nombre");
+
+            return ArrayNumbers;
+        }
+
+        static int[] GetEntriesIntegerNumberFromParameter(int EntriesNumber = -1)
+        {
+            //Check if positive if not and do while until it's positive 
+            //or diff from 0
+            while (CheckSignOfInteger(EntriesNumber))
             {
-                ArrayNumbers[i] = GetIntegerFromCmdLine("Entrez un chiffre");
+                EntriesNumber = GetIntegerFromCmdLine("Combien de nombres devez vous entrer?");
+                if (EntriesNumber == 0)
+                    Console.WriteLine("Vous ne pouvez entrer de nombre");
             }
+
+            int[] ArrayNumbers = new int[EntriesNumber];
+
+            for (int i = 0; i < EntriesNumber; i++)
+                ArrayNumbers[i] = GetIntegerFromCmdLine("Entrez un nombre");
 
             return ArrayNumbers;
         }
 
         static string[] GetEntriesStringsFromCmdLine()
         {
-            int EntriesNumber = GetIntegerFromCmdLine("Combien de mots devez vous entrer?");
-            //Check if positive
+            int EntriesNumber = 0;
+            //Check if positive if not and do while until it's positive 
+            //or diff from 0
             while (CheckSignOfInteger(EntriesNumber))
+            {
                 EntriesNumber = GetIntegerFromCmdLine("Combien de mots devez vous entrer?");
+                if (EntriesNumber == 0)
+                    WriteLine("Vous ne pouvez entrer de mot");
+            }
 
             string[] ArrayWords = new string[EntriesNumber];
 
@@ -148,6 +228,32 @@ namespace LES30EXOS
             }
 
             return ArrayWords;
+        }
+
+        static DateTime GetDateTimeFromCmdLine()
+        {
+            Console.WriteLine("Entrez une date et récuperez le jour de la semaine");
+            string response = GetStringFromCmdLine("Test avec la date du jour ? (O/N)");
+            if (response == "O" || response == "o")
+                return DateTime.Now;
+            else
+            {
+                string year = GetStringFromCmdLine("Entrez l'année :");
+                string month = GetStringFromCmdLine("Entrez le mois :");
+                string day = GetStringFromCmdLine("Entrez le jour :");
+                string hours = GetStringFromCmdLine("Entrez les heures :");
+                string minutes = GetStringFromCmdLine("Entrez les minutes :");
+                string seconds = GetStringFromCmdLine("Entrez les secondes :");
+
+                if (!IsDateTimeOK(year, month, day, hours, minutes, seconds))
+                {
+                    Console.WriteLine("Erreur dans le format entré");
+                    Console.WriteLine("La date du jour sera utilisée");
+                    return DateTime.Now;
+                }
+                DateTime.TryParse($"{year}-{month}-{day} {hours}:{minutes}:{seconds}", out DateTime date);
+                return date;
+            }
         }
 
         static void HelloWorld()
@@ -170,8 +276,7 @@ namespace LES30EXOS
                 isNegative = true;
             else if (number > 0)
                 isNegative = false;
-            else
-                WriteLine("Vous avez entré 0 comme chiffre");
+
 
             return isNegative;
         }
@@ -194,12 +299,7 @@ namespace LES30EXOS
             return -1;
         }
 
-        static string SwitchOrder()
-        {
-            string[] WordsArray = GetEntriesStringsFromCmdLine();
-
-            return String.Format("{0} {1} {2}", WordsArray[2], WordsArray[1], WordsArray[0]);
-        }
+        static string SwitchOrder(string[] WordsArray) => $"{WordsArray[2]} {WordsArray[1]} {WordsArray[0]}";
 
         static string DisplayEqualNumbers()
         {
@@ -406,7 +506,7 @@ namespace LES30EXOS
                 return false;
         }
 
-        static int[] ReturnTenFirstNumbers(int maxToDisplay,bool display = false)
+        static int[] ReturnTenFirstNumbers(int maxToDisplay, bool display = false)
         {
             int[] ArrayNumbers = new int[maxToDisplay];
             for (int i = 0; i < 100; i++)
@@ -463,7 +563,7 @@ namespace LES30EXOS
                 nb_motif += 2;
                 WriteLine("");
             }
-            
+
         }
 
         static void DisplayDiamant(int hauteur = 0, string pattern = "")
@@ -472,9 +572,9 @@ namespace LES30EXOS
             DisplayPyramide(hauteurPyramide, pattern);
             //on écrit les espaces(avec comme nbre max nb_espaces puis les patterns avec nb_motif
             int hauteurBasDiamant = hauteur - hauteurPyramide;
-            int nb_motifs = (hauteur % 2 == 0) ? hauteur -1 : hauteur - 2;
+            int nb_motifs = (hauteur % 2 == 0) ? hauteur - 1 : hauteur - 2;
             int nb_espaces = (hauteur % 2 == 0) ? 1 : 2;
-            
+
             for (int ligne = 0; ligne < hauteurBasDiamant; ligne++)
             {
                 int xpos = 0;
@@ -492,5 +592,56 @@ namespace LES30EXOS
                 WriteLine("");
             }
         }
+
+        static string DateDuJourComplete() => DateTime.Now.ToString();
+        static string DateDuJour() => DateTime.Now.ToString("dd/MM/yyyy");
+
+        static string DayofSpecificDate(DateTime date) => date.ToString(format: "dddd");
+
+        static bool IsDateTimeOK(string year, string month, string day, string hours = "0", string minutes = "0", string seconds = "0")
+        {
+            bool isDateOk = false;
+            if (int.TryParse(year, out int iYear) && iYear < 9999 && iYear > 0)
+                isDateOk = true;
+            if (int.TryParse(month, out int iMonth) && iMonth < 13 && iMonth > 0)
+                isDateOk = true;
+            if (int.TryParse(day, out int result) && result < DateTime.DaysInMonth(iYear, iMonth) && result > 1)
+                isDateOk = true;
+            if (int.TryParse(hours, out result) && result < 24 && result > 0)
+                isDateOk = true;
+            if (int.TryParse(minutes, out result) && result < 60 && result > 0)
+                isDateOk = true;
+            if (int.TryParse(seconds, out result) && result < 60 && result > 0)
+                isDateOk = true;
+            return isDateOk;
+        }
+
+        static DateTime GetMaxDate(DateTime date1, DateTime date2)
+        {
+            int result = DateTime.Compare(date1, date2);
+            if (result < 0)
+                return date2;
+            else if (result == 0)
+                return date1;
+            else
+                return date1;
+        }
+
+        static DateTime GetMinDate(DateTime date1, DateTime date2)
+        {
+            int result = DateTime.Compare(date1, date2);
+            if (result < 0)
+                return date1;
+            else if (result == 0)
+                return date1;
+            else
+                return date2;
+        }
+
+        static double GetTotalDays(DateTime earlierdate, DateTime laterdate)
+        {
+            return (laterdate - earlierdate).TotalDays;
+        }
     }
+
 }
