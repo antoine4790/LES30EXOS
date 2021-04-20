@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
 using static System.Console;
 
 namespace LES30EXOS
@@ -131,7 +133,7 @@ namespace LES30EXOS
             //        WriteLine(DayofSpecificDate(DateTime.Now));
             //    }
             //    DateTime.TryParse($"{year}-{month}-{day} {hours}:{minutes}:{seconds}", out DateTime date);
-            //    WriteLine(DayofSpecificDate(date));
+            //    WriteLine(WeekDayofSpecificDate(date));
             //}
 
             //Exo22
@@ -144,8 +146,113 @@ namespace LES30EXOS
             //Console.WriteLine("il y a {0} jours d'écart entre la date {1} et la date {2}",GetTotalDays(earlierDate, laterDate), earlierDate, laterDate);
 
             //Exo23
+            //string date = GetStringFromCmdLine("Entrez une date (dd/mm/yyyy)");
 
+            //DateTime result;
+
+            //CultureInfo frFr = new CultureInfo("fr-FR");
+            ////Parse date string to check format
+            //while (!DateTime.TryParseExact(date, "dd/MM/yyyy", frFr, DateTimeStyles.None, out result))
+            //{
+            //    Console.WriteLine("Saisie Incorrecte");
+            //    date = GetStringFromCmdLine("Entrez une date (dd/mm/yyyy)");
+            //}
+            //Console.WriteLine(result.ToString());
+
+            //Exo24
+            //Console.WriteLine("Jeu Du Plus ou Moins");
+
+            //int secretNumber = 13;
+
+            //int userNumber = GetIntegerFromCmdLine("Entrez un nombre le plus proche du nombre secret");
+            //int intents = 10;
+            //do
+            //{
+            //    if (userNumber.CompareTo(secretNumber) < 0)
+            //        Console.WriteLine("Plus !"); // le chiffre entré est plus petit que le nombre secret
+            //    else if (userNumber.CompareTo(secretNumber) > 0)
+            //        Console.WriteLine("Moins !"); // le chiffre entré est plus grand que le nombre secret
+            //    else
+            //        break;
+            //    intents--;
+
+            //} while ((userNumber = GetIntegerFromCmdLine("Entrez un nombre le plus proche du nombre secret")) != secretNumber && intents != 0);
+
+            //if (secretNumber == userNumber)
+            //    Console.WriteLine("Vous avez deviné le nombre secret");
+            //else
+            //    Console.WriteLine("Perdu , vous n'avez pas pu deviner le mot secret ! Réessayez plus tard !");
+
+            //Exo 25
+            //Console.WriteLine("Convertit la chaine de caractères en majuscules");
+            //string userInput = GetStringFromCmdLine("Entrez une phrase ou un mot");
+            //Console.WriteLine($"Avant : {userInput}, Après : {userInput.ToUpper()}");
+
+            //Exo 26
+            //Console.WriteLine("Parcours de chaine de caractères ");
+            //String chaine = GetStringFromCmdLine("Entrez une phrase ou un mot");
+            //foreach (var item in chaine)
+            //    Console.WriteLine(item);
+
+            //Exo 27
+            //Console.WriteLine("Inversion d'une chaine de caractères et ajout d'espaces entre chacun");
+            //String chaine = GetStringFromCmdLine("Entrez une phrase ou un mot");
+            //String newChaine = "";
+            //foreach (var item in chaine)
+            //{
+            //    Console.WriteLine(item);
+            //    newChaine= newChaine.Insert(0, $"{item.ToString()} ");
+            //}
+            //Console.WriteLine(newChaine);
+
+            //Exo28
+            //Console.WriteLine("Egalité de chaines de caractères (Case insensitive)");
+            //do
+            //{
+            //    String chaine1 = GetStringFromCmdLine("Entrez la premiere phrase ou le premier mot").ToUpper();
+            //    String chaine2 = GetStringFromCmdLine("Entrez la deuxième phrase ou le deuxième mot").ToUpper();
+
+            //    bool result = chaine1.Equals(chaine2);
+            //    if (result)
+            //        Console.WriteLine("Les deux chaines entrées sont identiques");
+            //    else
+            //        Console.WriteLine("Les deux chaines entrées sont différentes");
+            //}
+            //while ((GetStringFromCmdLine("Continue ? (O/N)").ToUpper()).Equals("O"));
+
+            //Exo 29
+            //Console.WriteLine("Est ce un palindrome ?");
+            //do
+            //{
+            //    String chaine = GetStringFromCmdLine("Entrez un mot uniquement");
+
+            //    string halfstring1 = chaine.Substring(0, chaine.Length / 2);
+            //    string halfstring2 = ReverseString(chaine.Substring(chaine.Length / 2));
+
+            //    if (chaine.Length % 2 != 0)
+            //        halfstring2 = ReverseString(chaine.Substring(chaine.Length / 2 + 1));
+
+            //    if (halfstring1.Equals(halfstring2))
+            //        Console.WriteLine("C'est un palindrome");
+            //    else
+            //        Console.WriteLine("Ceci n'est pas un palindrome");
+            //}
+            //while ((GetStringFromCmdLine("Continue ? (O/N)").ToUpper()).Equals("O"));
+
+            //Exo 30
+            //Console.WriteLine("Liste de 1 à 100 et Remplacement par Fizz,Buzz ou FizzBuzz selon le resultat du modulo");
+            //List<string> listModified = new List<string>();
+            //for (int nb = 1; nb < 101; nb++)
+            //{
+            //    if (nb % 3 == 0 && nb % 5 == 0) Console.Write("FizzBuzz ");
+            //    else if (nb % 3 == 0) Console.Write("Fizz ");
+            //    else if (nb % 5 == 0) Console.Write("Buzz ");
+            //    else Console.Write($"{nb} ");
+            //    if (nb % 9 == 0) Console.WriteLine();
+                 
+            //}
         }
+
 
         static float[] GetEntriesFloatNumberFromCmdLine()
         {
@@ -596,7 +703,7 @@ namespace LES30EXOS
         static string DateDuJourComplete() => DateTime.Now.ToString();
         static string DateDuJour() => DateTime.Now.ToString("dd/MM/yyyy");
 
-        static string DayofSpecificDate(DateTime date) => date.ToString(format: "dddd");
+        static string WeekDayofSpecificDate(DateTime date) => date.ToString(format: "dddd");
 
         static bool IsDateTimeOK(string year, string month, string day, string hours = "0", string minutes = "0", string seconds = "0")
         {
@@ -641,6 +748,15 @@ namespace LES30EXOS
         static double GetTotalDays(DateTime earlierdate, DateTime laterdate)
         {
             return (laterdate - earlierdate).TotalDays;
+        }
+
+        static string ReverseString(string chaine)
+        {
+            String newChaine = "";
+            foreach (var item in chaine)
+                newChaine = newChaine.Insert(0, item.ToString());
+
+            return newChaine;
         }
     }
 
