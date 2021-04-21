@@ -249,7 +249,7 @@ namespace LES30EXOS
             //    else if (nb % 5 == 0) Console.Write("Buzz ");
             //    else Console.Write($"{nb} ");
             //    if (nb % 9 == 0) Console.WriteLine();
-                 
+
             //}
         }
 
@@ -341,8 +341,9 @@ namespace LES30EXOS
         {
             Console.WriteLine("Entrez une date et récuperez le jour de la semaine");
             string response = GetStringFromCmdLine("Test avec la date du jour ? (O/N)");
+            DateTime date = DateTime.Now;
             if (response == "O" || response == "o")
-                return DateTime.Now;
+                return date;
             else
             {
                 string year = GetStringFromCmdLine("Entrez l'année :");
@@ -352,14 +353,18 @@ namespace LES30EXOS
                 string minutes = GetStringFromCmdLine("Entrez les minutes :");
                 string seconds = GetStringFromCmdLine("Entrez les secondes :");
 
-                if (!IsDateTimeOK(year, month, day, hours, minutes, seconds))
+                //Double check du format de date
+                bool dateFormatOk = DateTime.TryParse($"{year}-{month}-{day} {hours}:{minutes}:{seconds}", out date) &&
+                                    IsDateTimeOK(year, month, day, hours, minutes, seconds);
+
+                if (!dateFormatOk)
                 {
                     Console.WriteLine("Erreur dans le format entré");
                     Console.WriteLine("La date du jour sera utilisée");
-                    return DateTime.Now;
+                    date = DateTime.Now;
                 }
-                DateTime.TryParse($"{year}-{month}-{day} {hours}:{minutes}:{seconds}", out DateTime date);
                 return date;
+
             }
         }
 
