@@ -15,7 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ClassLibrary\ClassLibrary.csproj" />
-    <ProjectReference Include="..\Classes_Linq_Exceptions\Classes_Linq_Exceptions.csproj" />
+    <ProjectReference Include="..\Classes_Linq_Exceptions\Basic_Classes_Linq_Exceptions.csproj" />
   </ItemGroup>
 
 </Project>

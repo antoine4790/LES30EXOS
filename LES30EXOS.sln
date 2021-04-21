@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31129.286
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassLibrary", "ClassLibrary\ClassLibrary.csproj", "{AE580CF7-C0DB-4D0C-A8AE-167B895A72A2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Classes_Linq_Exceptions", "Classes_Linq_Exceptions\Classes_Linq_Exceptions.csproj", "{9CBB1B81-8682-4166-8A24-C355E1BD1B03}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Basic_Classes_Linq_Exceptions", "Classes_Linq_Exceptions\Basic_Classes_Linq_Exceptions.csproj", "{9CBB1B81-8682-4166-8A24-C355E1BD1B03}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassLibraryTests", "ClassLibraryTests\ClassLibraryTests.csproj", "{0BA3A1DE-4C7E-4FDF-8561-896108D9A25A}"
 EndProject

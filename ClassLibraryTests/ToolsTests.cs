@@ -26,5 +26,20 @@ namespace ClassLibrary.Tests
             //rien on attend juste une exception
 
         }
+
+        [TestMethod()]
+        public void DiviserTestPar5()
+        {
+            //Arrange
+            int numerateur = 5;
+            int denominateur = 5;
+
+            //Act
+            double result = Tools.diviser(numerateur, denominateur);
+
+            //Assert
+            Assert.AreEqual(result, 1);
+
+        }
     }
 }
