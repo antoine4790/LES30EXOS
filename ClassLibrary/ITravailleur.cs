@@ -8,6 +8,6 @@ namespace ClassLibrary
 {
     public interface ITravailleur
     {
-        string Afficher();
+        void Afficher();
     }
 }

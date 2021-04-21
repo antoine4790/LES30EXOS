@@ -28,12 +28,14 @@ namespace ClassLibrary
 
         public override string ToString()
         {
-            return String.Format("{0} {1} {2} {3} {4}", Nom, Prenom, DateNaissance, GetSalaire(), base.ToString() );
+            return String.Format("{0} {1}", base.ToString(), GetSalaire());
         }
 
-        public override string Afficher()
+        public override void Afficher()
         {
-            return String.Format("{0} {1} {2} {3}", Nom, Prenom, DateNaissance, GetSalaire());
+            base.Afficher();
+            Console.WriteLine("Salaire de l'employé : {0}", GetSalaire());
+            Console.WriteLine();
         }
     }
 }

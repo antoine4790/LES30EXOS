@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31129.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LES30EXOS", "LES30EXOS\LES30EXOS.csproj", "{E5FB24FC-FD4E-4136-9FFB-1AF723E40EB7}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassLibrary", "ClassLibrary\ClassLibrary.csproj", "{AE580CF7-C0DB-4D0C-A8AE-167B895A72A2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Classes_Linq_Exceptions", "Classes_Linq_Exceptions\Classes_Linq_Exceptions.csproj", "{9CBB1B81-8682-4166-8A24-C355E1BD1B03}"
@@ -17,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E5FB24FC-FD4E-4136-9FFB-1AF723E40EB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E5FB24FC-FD4E-4136-9FFB-1AF723E40EB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E5FB24FC-FD4E-4136-9FFB-1AF723E40EB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E5FB24FC-FD4E-4136-9FFB-1AF723E40EB7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AE580CF7-C0DB-4D0C-A8AE-167B895A72A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AE580CF7-C0DB-4D0C-A8AE-167B895A72A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE580CF7-C0DB-4D0C-A8AE-167B895A72A2}.Release|Any CPU.ActiveCfg = Release|Any CPU

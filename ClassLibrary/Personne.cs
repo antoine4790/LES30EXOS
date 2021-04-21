@@ -36,11 +36,11 @@ namespace ClassLibrary
             return $"{Nom}  {Prenom}  {DateNaissance}";
         }
 
-        public virtual string Afficher()
+        public virtual void Afficher()
         {
-            return String.Format("{0} {1} {2}", Nom, Prenom, DateNaissance);
+            Console.WriteLine($"Nom : {Nom} Prenom : {Prenom}");
+            Console.WriteLine($"Date de Naissance : {DateNaissance}");
         }
-
 
         public bool Equals(Personne other)
         {
